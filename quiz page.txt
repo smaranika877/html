@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .quiz-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .quiz-container h1 {
+            font-size: 28px;
+            text-align: center;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .question p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin: 10px 0;
+        }
+        .options input {
+            margin-right: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Simple Quiz</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. What is the capital of France?</p>
+                <ul class="options">
+                    <li><input type="radio" name="q1" value="Paris"> Paris</li>
+                    <li><input type="radio" name="q1" value="London"> London</li>
+                    <li><input type="radio" name="q1" value="Berlin"> Berlin</li>
+                    <li><input type="radio" name="q1" value="Madrid"> Madrid</li>
+                </ul>
+            </div>
+            <div class="question">
+                <p>2. Which programming language is known as the language of the web?</p>
+                <ul class="options">
+                    <li><input type="radio" name="q2" value="Python"> Python</li>
+                    <li><input type="radio" name="q2" value="JavaScript"> JavaScript</li>
+                    <li><input type="radio" name="q2" value="Java"> Java</li>
+                    <li><input type="radio" name="q2" value="C++"> C++</li>
+                </ul>
+            </div>
+            <div class="question">
+                <p>3. Who wrote the play "Romeo and Juliet"?</p>
+                <ul class="options">
+                    <li><input type="radio" name="q3" value="Shakespeare"> William Shakespeare</li>
+                    <li><input type="radio" name="q3" value="Dickens"> Charles Dickens</li>
+                    <li><input type="radio" name="q3" value="Hemingway"> Ernest Hemingway</li>
+                    <li><input type="radio" name="q3" value="Austen"> Jane Austen</li>
+                </ul>
+            </div>
+            <button type="button" onclick="submitQuiz()">Submit</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        // Correct answers for each question
+        const correctAnswers = {
+            q1: "Paris",
+            q2: "JavaScript",
+            q3: "Shakespeare"
+        };
+
+        function submitQuiz() {
+            // Get all the form data
+            const form = document.getElementById('quiz-form');
+            const resultDiv = document.getElementById('result');
+            let score = 0;
+
+            // Check each question's answer
+            for (let question in correctAnswers) {
+                const selectedOption = form.querySelector(`input[name="${question}"]:checked`);
+                if (selectedOption && selectedOption.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display result
+            resultDiv.textContent = `You scored ${score} out of 3`;
+        }
+    </script>
+</body>
+</html>

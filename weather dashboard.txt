@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .dashboard {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .dashboard h1 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .temperature {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin: 20px 0;
+        }
+        .weather-description {
+            font-size: 18px;
+            color: #555;
+        }
+        .city {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .weather-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            margin-top: 15px;
+            color: #777;
+        }
+        .weather-info div {
+            width: 45%;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Weather Dashboard</h1>
+        <div class="city">City: <strong>London</strong></div>
+        <div class="temperature">22°C</div>
+        <div class="weather-description">Sunny</div>
+        
+        <div class="weather-info">
+            <div>Humidity: 65%</div>
+            <div>Wind Speed: 10 km/h</div>
+        </div>
+        
+        <div class="weather-info">
+            <div>Pressure: 1015 hPa</div>
+            <div>Sunrise: 7:30 AM</div>
+        </div>
+    </div>
+</body>
+</html>
